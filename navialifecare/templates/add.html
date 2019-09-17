@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<head>
+	<title>Add Schedule</title>
+</head>
+<body>
+	<table>
+		<tr>
+			<th><a href="/">Home</a></th>
+			<th><a href="accounts/logout">Logout</a></th>
+		</tr>
+	</table>
+	<br>
+	<br>
+	
+	<h3>Your Current active schedules are below</h3>
+	<table border="1">
+		<tr>
+			<th>Food item/Medicine</th>
+			<th>Timing</th>
+			<th>Duration</th>
+		</tr>
+		{% for x in data %}
+		<tr>
+			<td>{{x.item}}</td>
+			<td>{{x.time}}</td>
+			<td>{{x.duration}}</td>
+		</tr>
+		{% endfor %}
+	</table>
+	<hr>
+	<hr>
+	<div>
+		<h3>Add new schedules here</h3>
+	<form action="add" method="POST">
+		{% csrf_token %}
+		Enter Food item/Medicine:<br>
+		<input type="text" name="medicine" placeholder="Food item/Medicine"><br>
+		Select Timing:<br>
+		<input type="time" name="stime"><br>
+		Enter Duration:<br>
+		<input type="text" name="duration" placeholder="Duration"><br>
+		<input type="submit">
+	</form>
+	</div>
+	
+	
+	
+</body>

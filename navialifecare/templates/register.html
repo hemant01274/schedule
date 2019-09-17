@@ -1,0 +1,27 @@
+
+<!DOCTYPE html>
+<head>
+	<title>Register::::Schedule</title>
+</head>
+<body>
+	<table>
+		<tr>
+			<th><a href="/">Home</a></th>
+			<th><a href="login">Login</a></th>
+		</tr>
+	</table>
+	<br>
+	<form action="register" method="POST">
+		{% csrf_token %}
+		Enter First Name:<br><input type="text" name="first_name" placeholder="first name"><br>
+		Enter Last Name:<br><input type="text" name="last_name" placeholder="last name"><br>
+		Enter Username:<br><input type="text" name="username" placeholder="username"><br>
+		Enter Email:<br><input type="email" name="email" placeholder="email"><br>
+		Enter Password:<br><input type="password" name="password1" placeholder="password"><br>
+		Comfir Password:<br><input type="password" name="password2" placeholder="confirm password"><br>
+		<input type="submit">
+	</form>
+	{% for message in messages %}
+	<h3>{{message}}</h3>
+	{% endfor %}
+</body>

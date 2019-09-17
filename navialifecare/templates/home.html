@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<head>
+	<title>Schedule</title>
+</head>
+<body>
+	{% if user.is_authenticated %}
+	<h3>hello, 	{{user.first_name}}. Click on Show schedule to view your schedule</h3>
+	{% else %}
+	<h3>Please Login to see your schedule</h3>
+	{% endif %}
+	<ul>
+		<li><a href="">Home</a></li>
+		{% if user.is_authenticated %}
+		<li><a href="/add">Add Schedule</li>
+		<li><a href="/show">Show Schedule</li>
+		<li><a href="accounts/logout">Logout</li>
+		{% else %}
+		<li><a href="accounts/login">Login</li>
+		<li><a href="accounts/register">Register</li>
+		{% endif %}
+	</ul>
+</body>
